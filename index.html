@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise 🎉</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+  html,body{height:100%;overflow:hidden;background:black;}
+  .slide{position:absolute; top:0; left:0; width:100%; height:100%; display:flex; justify-content:center; align-items:center; flex-direction:column; text-align:center; padding:20px; color:white; z-index:2; opacity:0; transition:opacity 1s ease-in-out; pointer-events:none;}
+  .active{opacity:1; pointer-events:auto;}
+  h1,p{margin:15px 0; max-width:90%;}
+  .btn{background:linear-gradient(45deg,#ff0080,#ff8c00); color:white; padding:12px 25px; border:none; border-radius:25px; cursor:pointer; margin-top:20px; font-size:clamp(14px,2.8vw,18px); transition:transform .2s ease-in-out; z-index:3;}
+  .btn:hover{transform:scale(1.05);}
+  .memory-video{width:clamp(240px,70%,480px); max-height:65vh; border-radius:15px; box-shadow:0 4px 15px rgba(255,255,255,.4); z-index:3;}
+  canvas.fw{position:absolute; top:0; left:0; width:100%; height:100%; z-index:1; pointer-events:none;}
+  .credit-box{background:rgba(255,255,255,0.1); padding:30px; border-radius:20px; box-shadow:0 0 20px rgba(255,255,255,.4); z-index:3; display:flex; flex-direction:column; align-items:center;}
+  .profile-photo{width:200px; height:200px; border-radius:15px; object-fit:cover; margin:20px 0; box-shadow:0 4px 15px rgba(255,255,255,.4);}
+</style>
+</head>
+<body>
+
+<!-- Background Music -->
+<audio id="bg-music" autoplay loop playsinline>
+  <source src="song.mp3" type="audio/mpeg">
+  <source src="song.ogg" type="audio/ogg">
+  <source src="song.wav" type="audio/wav">
+  Your browser does not support the audio element.
+</audio>
+
+<!-- Firework sound -->
+<audio id="fw-sound">
+  <source src="firework.mp3" type="audio/mpeg">
+  <source src="firework.ogg" type="audio/ogg">
+  <source src="firework.wav" type="audio/wav">
+  Your browser does not support the audio element.
+</audio>
+
+<!-- Slide 6 -->
+<div class="slide active" id="slide6">
+  <canvas class="fw"></canvas>
+  <div class="credit-box">
+    <h1>✨ Created by Arpit Malik ✨</h1>
+    <button class="btn" onclick="nextSlide()">Click Here for Surprise ➡️</button>
+  </div>
+</div>
+
+<!-- Slide 7 -->
+<div class="slide" id="slide7">
+  <canvas class="fw"></canvas>
+  <div class="credit-box">
+    <h1>🎁 Surprise 🎁</h1>
+    <p>This is just the beginning... our story will always be the most beautiful gift 💖</p>
+    <button class="btn" onclick="nextSlide()">Next ➡️</button>
+  </div>
+</div>
+
+<!-- Slide 8 -->
+<div class="slide" id="slide8">
+  <canvas class="fw"></canvas>
+  <div class="credit-box">
+    <h1>I want to tell you something about me</h1>
+    <img src="me.jpg" alt="My Photo" class="profile-photo">
+    <p>
+      I am Arpit Malik, your friend and brother. ❤️ I lovingly call you "Momo." 🥰<br>
+      Let me tell you a truth — ever since I started talking to you, I forget all my sorrows. 😌<br>
+      You are the best sister and best friend forever. 👭💖
+    </p>
+    <button class="btn" onclick="nextSlide()">Next ➡️</button>
+  </div>
+</div>
+
+<!-- Slide 1 -->
+<div class="slide" id="slide1">
+  <canvas class="fw"></canvas>
+  <div class="credit-box">
+    <h1>🎂 Happy Birthday Anjali 🎂</h1>
+    <p>On this special day, I want to celebrate you and the joy you bring into my life. 💖</p>
+    <button class="btn" onclick="nextSlide()">Next ➡️</button>
+  </div>
+</div>
+
+
+
+<!-- Slide 9 (New Slide) -->
+<div class="slide" id="slide9">
+  <canvas class="fw"></canvas>
+  <div class="credit-box">
+    <h1>💞Your Beautiful Memories 💞</h1>
+    <video class="memory-video" autoplay muted loop controls playsinline>
+      <source src="video2.mp4" type="video/mp4">
+      <source src="video2.webm" type="video/webm">
+      <source src="video2.ogg" type="video/ogg">
+    </video>
+    <p>This moment... is your forever favorite 💕</p>
+    <button class="btn" onclick="nextSlide()">Next ➡️</button>
+  </div>
+</div>
+
+
+
+
+<!-- Slide 2 -->
+<div class="slide" id="slide2">
+  <canvas class="fw"></canvas>
+  <div class="credit-box">
+    <h1>✨ You Light Up My Life ✨</h1>
+    <p>Your smile makes my world brighter every single day 🌟</p>
+    <button class="btn" onclick="nextSlide()">Next ➡️</button>
+  </div>
+</div>
+
+<!-- Slide 3 -->
+<div class="slide" id="slide3">
+  <canvas class="fw"></canvas>
+  <div class="credit-box">
+    <h1>🎉 Let’s Celebrate 💞Your Birthday 🎉</h1>
+    <p>Balloons, confetti, and endless smiles! 🥳</p>
+    <button class="btn" onclick="nextSlide()">Next ➡️</button>
+  </div>
+</div>
+
+<!-- Slide 4 -->
+<div class="slide" id="slide4">
+  <canvas class="fw"></canvas>
+  <div class="credit-box">
+    <h1>💞 Your Beautiful Memories 💞</h1>
+    <video class="memory-video" autoplay muted loop controls playsinline>
+      <source src="video1.mp4" type="video/mp4">
+      <source src="video1.webm" type="video/webm">
+      <source src="video1.ogv" type="video/ogg">
+    </video>
+    <p>This moment... is your forever favorite 💕</p>
+    <button class="btn" onclick="nextSlide()">Next ➡️</button>
+  </div>
+</div>
+
+ 
+<!-- Slide 5 -->
+<div class="slide" id="slide5">
+  <canvas class="fw"></canvas>
+  <div class="credit-box">
+    <h1>❤️ Happy Birthday ❤️</h1>
+    <h1> THIS IS FOR YOU </h1>
+    <p>You are my everything, my love, my life 🌹</p>
+    <button class="btn" onclick="restartSlides()">🔄 See Again</button>
+  </div>
+</div>
+
+<script>
+let currentSlide=1; const totalSlides=9;
+function showSlide(n){
+  currentSlide=n;
+  document.querySelectorAll(".slide").forEach((s,i)=>{
+    s.classList.remove("active");
+    if(i===n-1) s.classList.add("active");
+  });
+}
+function nextSlide(){if(currentSlide<totalSlides){showSlide(++currentSlide);} }
+function restartSlides(){showSlide(1); }
+
+class Firework{
+  constructor(sx,sy,tx,ty,ctx){
+    this.x=sx; this.y=sy; this.tx=tx; this.ty=ty; this.ctx=ctx;
+    this.coordinates=[[sx,sy],[sx,sy],[sx,sy]];
+    this.angle=Math.atan2(ty-sy,tx-sx);
+    this.speed=2; this.accel=1.05;
+    this.brightness=Math.random()*20+50;
+  }
+  update(index,fireworks,particles){
+    this.coordinates.pop(); this.coordinates.unshift([this.x,this.y]);
+    this.speed*=this.accel;
+    this.x+=Math.cos(this.angle)*this.speed;
+    this.y+=Math.sin(this.angle)*this.speed;
+    if(Math.hypot(this.tx-this.x,this.ty-this.y)<5){
+      createParticles(this.tx,this.ty,particles,currentSlide>=7);
+      fireworks.splice(index,1);
+      // Play firework sound
+      const fwSound=document.getElementById("fw-sound");
+      fwSound.currentTime=0;
+      fwSound.play();
+    }
+  }
+  draw(){
+    this.ctx.beginPath();
+    this.ctx.moveTo(this.coordinates[this.coordinates.length-1][0],this.coordinates[this.coordinates.length-1][1]);
+    this.ctx.lineTo(this.x,this.y);
+    this.ctx.strokeStyle=`hsl(${Math.random()*20+40},100%,${this.brightness}%)`;
+    this.ctx.stroke();
+  }
+}
+
+class Particle{
+  constructor(x,y,ctx){
+    this.x=x; this.y=y; this.ctx=ctx;
+    this.coordinates=[[x,y],[x,y],[x,y]];
+    this.angle=Math.random()*Math.PI*2;
+    this.speed=Math.random()*10+2;
+    this.friction=0.94; this.gravity=1;
+    this.hue=[45,50,55][Math.floor(Math.random()*3)];
+    this.brightness=Math.random()*20+65;
+    this.alpha=1;
+    this.decay=Math.random()*0.01+0.01;
+  }
+  update(index,particles){
+    this.coordinates.pop();
+    this.coordinates.unshift([this.x,this.y]);
+    this.speed*=this.friction;
+    this.x+=Math.cos(this.angle)*this.speed;
+    this.y+=Math.sin(this.angle)*this.speed+this.gravity;
+    this.alpha-=this.decay;
+    if(this.alpha<=0.05){particles.splice(index,1);}
+  }
+  draw(){
+    this.ctx.beginPath();
+    this.ctx.moveTo(this.coordinates[this.coordinates.length-1][0],this.coordinates[this.coordinates.length-1][1]);
+    this.ctx.lineTo(this.x,this.y);
+    this.ctx.strokeStyle=`hsla(${this.hue},100%,${this.brightness}%,${this.alpha})`;
+    this.ctx.stroke();
+  }
+}
+
+function createParticles(x,y,particles,grand=false){
+  let count=grand?400:180;
+  while(count--) particles.push(new Particle(x,y,particles.ctx));
+}
+
+document.querySelectorAll(".fw").forEach((canvas,i)=>{
+  const ctx=canvas.getContext("2d");
+  let fireworks=[],particles=[];
+  particles.ctx=ctx;
+  function resize(){canvas.width=innerWidth; canvas.height=innerHeight;}
+  window.addEventListener("resize",resize);
+  resize();
+  function loop(){
+    requestAnimationFrame(loop);
+    if(currentSlide!==i+1) return;
+    ctx.globalCompositeOperation="destination-out";
+    ctx.fillStyle="rgba(0,0,0,0.5)";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.globalCompositeOperation="lighter";
+    for(let f=fireworks.length-1; f>=0; f--){fireworks[f].draw(); fireworks[f].update(f,fireworks,particles);}
+    for(let p=particles.length-1; p>=0; p--){particles[p].draw(); particles[p].update(p,particles);}
+    let chance=(currentSlide>=7)?0.25:0.18;
+    if(Math.random()<chance){
+      let sx=Math.random()*canvas.width, sy=canvas.height;
+      let tx=Math.random()*canvas.width, ty=Math.random()*canvas.height/2;
+      fireworks.push(new Firework(sx,sy,tx,ty,ctx));
+    }
+  }
+  loop();
+});
+
+const bgMusic=document.getElementById("bg-music");
+bgMusic.play().catch(()=>{console.log("Autoplay blocked. Waiting for user interaction...");});
+document.addEventListener("click",()=>{if(bgMusic.paused){bgMusic.play();}});
+</script>
+</body>
+</html>
